@@ -19,8 +19,8 @@ app.post('/api/mail', (req, res) => {
     let mailOptions = {
        from: 'Fletes Ya! <no-responder@fletesya.cl>', 
        to:  process.env.personalMail, 
-       subject: `Nuevo mensaje desde tu portfolio`,
-       text: 'Nuevo mensaje desde tu portfolio',
+       subject: `Nuevo mensaje de ${mailData.mail}`,
+       text: 'Nuevo mensaje',
        html: ` 
     
        <table width="100%" border="0" cellspacing="0" cellpadding="0">
