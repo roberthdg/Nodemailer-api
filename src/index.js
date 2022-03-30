@@ -14,10 +14,9 @@ let transporter = nodemailer.createTransport({
  
 app.post('/api/mail', (req, res) => {
     let mailData = req.body;
-    console.log('lol');
     //verificar validez de la token en la BD (si no existe return send.status(401))
     let mailOptions = {
-       from: 'Fletes Ya! <no-responder@fletesya.cl>', 
+       from: `Website <${process.env.transporterMail}>`, 
        to:  process.env.personalMail, 
        subject: `Nuevo mensaje de ${mailData.mail}`,
        text: 'Nuevo mensaje',
@@ -51,5 +50,4 @@ app.post('/api/mail', (req, res) => {
 //Iniciar el servidor
 app.listen(app.get('port'),() => {
     console.log('server on port ', app.get('port'));
-
 });
