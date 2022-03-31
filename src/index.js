@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const app = require("./server");
+const port = process.env.PORT || 3030;
+const http = require('http');
 
 // nodemailer options
 let transporter = nodemailer.createTransport({
@@ -46,8 +48,9 @@ app.post('/api/mail', (req, res) => {
     });
  
 });
+const server = http.createServer(app);
 
 //Iniciar el servidor
-app.listen(app.get('port'),() => {
-    console.log('server on port ', app.get('port'));
+server.listen(port,() => {
+    console.log('server on port ', port);
 });
